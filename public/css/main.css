@@ -1,21 +1,23 @@
 html {
-  --bg: #050626;
-  --users: rgb(20, 40, 107);
-  --msgContainer: rgb(9, 23, 68);
-  --msg1: rgb(42, 63, 131);
-  --msg2: rgb(18, 41, 117);
-  --input: #ffffff;
-  --color: #ffffff;
+  --bg: #fbf9ff;
+  --purple: #663bb1;
+  --light-purple: #cdb1ff;
+  --medium-purple: #523388;
+  --dark-purple: #2b1256;
+  --darker-purple: #30145f;
+  --pink-purple: #e1b9f2;
+  --color: white;
 }
 
-html[data-theme='light'] {
-  --bg: #dadada;
-  --users: rgb(245, 245, 245);
-  --msgContainer: rgb(249, 249, 249);
-  --msg1: rgb(196, 210, 255);
-  --msg2: rgb(239, 242, 255);
-  --input: #ffffff;
-  --color: rgb(41, 41, 41);
+html[data-theme='dark'] {
+  --bg: #160a2c;
+  --purple: #ffffff;
+  --light-purple: #250858;
+  --medium-purple: #ffffff;
+  --dark-purple: #0e0124;
+  --darker-purple: #130131;
+  --pink-purple: #0b0418;
+  --color: #663bb1;
 }
 
 body {
@@ -25,20 +27,22 @@ body {
 }
 
 #logo {
-  background: var(--bg);
-  border-radius: 5px;
-  padding: 2px auto;
+  font-size: 2em;
+  margin: 0;
+  padding: 10px;
+  background: var(--purple);
+  color: var(--color);
 }
 
 #logo:hover {
   cursor: pointer;
   background: var(--color);
-  color: var(--bg);
+  color: var(--purple);
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 /* Track */
@@ -61,8 +65,8 @@ body {
   width: 300px;
   margin: 200px auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.795);
-  color: black;
+  background: var(--purple);
+  color: var(--color);
   border-radius: 5px;
   -webkit-box-shadow: 0.6px 1px 7px 1px rgba(11, 20, 49, 0.507);
           box-shadow: 0.6px 1px 7px 1px rgba(11, 20, 49, 0.507);
@@ -88,13 +92,21 @@ body {
 }
 
 #login-form button {
+  width: 100%;
   margin: 10px 0;
   padding: 10px;
-  background: blue;
-  color: white;
+  background: var(--dark-purple);
+  color: var(--color);
   border-radius: 2px;
   border: none;
   border-radius: 5px;
+  -webkit-box-shadow: 0.6px 1px 7px 1px rgba(11, 20, 49, 0.507);
+          box-shadow: 0.6px 1px 7px 1px rgba(11, 20, 49, 0.507);
+}
+
+#login-form button:hover {
+  background: var(--color);
+  color: var(--purple);
 }
 
 #app {
@@ -118,24 +130,16 @@ body {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
-  background: var(--users);
-  margin: 10px 5px 1px 5px;
-  padding: 0 10px;
+  background: var(--light-purple);
   color: var(--color);
-  border-radius: 5px;
   overflow-y: scroll;
-}
-
-.users h1 {
-  padding: 0 10px;
-  font-size: 2em;
 }
 
 .users h2 {
   padding: 0 10px;
   padding-bottom: 10px;
   font-size: 1.5em;
-  border-bottom: 1px solid #091744;
+  color: var(--purple);
 }
 
 .users #users-list {
@@ -145,9 +149,12 @@ body {
 
 .users #users-list li {
   padding: 10px 20px;
-  margin: 5px 0;
-  background: var(--msg1);
-  border-radius: 5px;
+  background: var(--dark-purple);
+  color: white;
+}
+
+.users #users-list li:hover {
+  background: var(--darker-purple);
 }
 
 #leave {
@@ -157,16 +164,19 @@ body {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
-  padding: 3px;
 }
 
 #leave button {
   width: 100%;
-  background: blue;
-  color: white;
-  border-radius: 5px;
+  background: var(--purple);
+  color: var(--color);
   border: none;
   padding: 10px 0;
+}
+
+#leave button:hover {
+  background: var(--color);
+  color: var(--purple);
 }
 
 #msg-container {
@@ -177,18 +187,24 @@ body {
       grid-column-start: 2;
   grid-column-end: 3;
   overflow-y: scroll;
-  background: var(--msgContainer);
-  margin: 10px 0 1px 0;
-  padding: 50px;
-  border-radius: 5px;
+  background: var(--bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 10px;
 }
 
 #msg-container .message {
-  background: var(--msg1);
+  font-size: 0.8em;
+  margin: 2px 0;
+  max-width: 65%;
   color: var(--color);
-  margin: 5px 0;
   padding: 1px 10px;
-  border-radius: 5px;
+  word-wrap: break-word;
 }
 
 #msg-container .message .sender {
@@ -199,8 +215,38 @@ body {
   font-weight: normal;
 }
 
-#msg-container .message:nth-child(odd) {
-  background: var(--msg2);
+#msg-container .message.left {
+  margin-left: 5%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  background: var(--light-purple);
+  color: var(--medium-purple);
+  border-left: 5px solid var(--medium-purple);
+}
+
+#msg-container .message.right {
+  margin-right: 5%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background: var(--medium-purple);
+  color: var(--light-purple);
+  border-right: 5px solid var(--light-purple);
+}
+
+#msg-container .message.center {
+  font-size: 0.7em;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background: var(--dark-purple);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#msg-container .message.center .text {
+  padding-left: 5px;
 }
 
 #msg-input {
@@ -210,32 +256,30 @@ body {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
-  padding: 3px 1px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 #msg-input input {
-  background: var(--input);
-  border-radius: 5px;
+  background: var(--pink-purple);
+  color: var(--purple);
   border: none;
   padding: 10px;
-  margin-right: 5px;
   width: 90%;
 }
 
 #msg-input button {
   width: 8%;
-  background: blue;
-  color: white;
-  border-radius: 5px;
+  background: var(--purple);
+  color: var(--color);
   border: none;
   padding: 10px;
 }
 
 #msg-input button:hover {
-  background: #4141ff;
+  background: var(--color);
+  color: var(--purple);
   cursor: pointer;
 }
 
@@ -248,20 +292,24 @@ body {
   }
   #users-toggle {
     display: block;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
   }
   #users-toggle button {
     width: 100%;
-    background: blue;
-    color: white;
-    border-radius: 5px;
+    background: var(--dark-purple);
+    color: var(--color);
     border: none;
     padding: 10px;
   }
   .users {
+    z-index: 0;
     display: none;
     position: absolute;
-    width: calc(100% - 20px);
-    height: calc(100% - 90px);
+    top: 30px;
+    width: calc(100%);
+    height: calc(100% - 70px);
     text-align: center;
   }
   #leave {
@@ -269,6 +317,7 @@ body {
     position: relative;
   }
   #msg-container {
+    margin-top: 25px;
     padding: 10px;
     -ms-grid-column: 1;
         grid-column-start: 1;

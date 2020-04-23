@@ -1,35 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volatica</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <div id="app">
-        <div id="users-toggle">
-            <button>Users</button>
-        </div>
-        <div class="users">
-            <h1 id="logo">Volatica</h1>
-            <h2 id="room-name"></h2>
-            <ul id="users-list"></ul>
-        </div>
-        <div id="leave">
-            <a href="/"><button>Leave</button></a>
-        </div>
-        <div id="msg-container">
-            
-        </div>
-        <form action="" id="msg-input">
-            <input type="text" autocomplete="off" id="m" placeholder="Type message here" />
-            <button>Send</button>
-        </form>
-    </div>
+<html lang="en" data-theme="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Volatica</title>
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div id="users-toggle">
+				<button>Users</button>
+			</div>
+			<div class="users">
+				<h1 id="logo">Volatica</h1>
+				<h2 id="room-name"></h2>
+				<ul id="users-list"></ul>
+			</div>
+			<div id="leave">
+				<a href="/"><button>Leave</button></a>
+			</div>
+			<div id="msg-container"></div>
+			<form action="" id="msg-input">
+				<input
+					type="text"
+					autocomplete="off"
+					id="m"
+					placeholder="Type message here"
+				/>
+				<button>Send</button>
+			</form>
+		</div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="js/client.js"></script>
-</body>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="js/client.js"></script>
+	</body>
 </html>
