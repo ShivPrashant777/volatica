@@ -2,4 +2,4 @@
 Chat App using Socket.io
 
 # Live Site
-[Volatica]https://volatica.herokuapp.com/)
+[Volatica](https://volatica.herokuapp.com/)
