@@ -19,14 +19,14 @@ usersToggle.addEventListener('click', function () {
 	}
 });
 
-// Dark Theme
-var dark = false;
+// Light Theme
+var light = false;
 logo.addEventListener('click', function () {
 	if (dark == false) {
-		document.documentElement.setAttribute('data-theme', 'dark');
+		document.documentElement.setAttribute('data-theme', 'light');
 		dark = true;
 	} else {
-		document.documentElement.setAttribute('data-theme', 'light');
+		document.documentElement.setAttribute('data-theme', 'dark');
 		dark = false;
 	}
 });
